@@ -3,13 +3,14 @@ const {connection} = require('./connection');
 
 
  exports.get = (req, res) => {
-  res.send('<h1>Welcome to the School Management API!</h1><p>Use the /plus endpoint to add school information (via POST) and /gt endpoint to get nearby schools (via GET).</p>');
+  res.send('<h1>Welcome to the School Management API!</h1><p>Use the /addSchool endpoint to add school information (via POST) and /listSchools endpoint to get nearby schools (via GET).</p>');
 };
 
 
 
     exports.plus = (req,res)=>{
     const {schoolname,address,latitude,longitude} = req.body;
+    
 
     if (!schoolname||!address || isNaN(latitude) || isNaN(longitude)) {
     return res.status(400).json({ error: 'Invalid input' });
